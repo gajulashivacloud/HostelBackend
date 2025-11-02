@@ -32,14 +32,14 @@ namespace hostellers.Controllers
 
             var details = new List<Dictionary<string, object>>();
 
-            try
+            try 
             {
                 using (SqlConnection conn = new SqlConnection(_connectionString))
                 using (SqlCommand cmd = new SqlCommand("getbyhid", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Add parameter safely
+                    // Add parameter safely  
                     SqlParameter hidParam = new SqlParameter("@HID", SqlDbType.VarChar, 50)
                     {
                         Value = string.IsNullOrEmpty(host.HostelID)
@@ -73,5 +73,10 @@ namespace hostellers.Controllers
                 return StatusCode(500, $"Unexpected error: {ex.Message}");
             }
         }
+        private string sai()
+        {
+            return "sai";
+        }
+
     }
-}
+}                             
